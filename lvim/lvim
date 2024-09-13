@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+export NVIM_APPNAME="${NVIM_APPNAME:-"lvim"}"
+
+param="$1"
+dir=""
+config_dir=""
+
+if [ -f "$param" ] ;then
+	# 文件
+	dir="$(realpath -L "$param" | sed 's|/[^/]*$||')"
+	if [ -d "$dir/.lvim.config" ] && [ -f "$dir/.lvim.config/config.lua" ] ;then
+		config_dir="$dir/.lvim.config"
+	fi
+elif [ -d "$param" ] ;then
+	# 路径
+	dir="$(realpath -L "$param")"
+	if [ -d "$dir/.lvim.config" ] && [ -f "$dir/.lvim.config/config.lua" ] ;then
+		config_dir="$dir/.lvim.config"
+	fi
+fi
+
+if [ -z "$config_dir" ]; then
+	config_dir="/home/mxuan/.config/lvim"
+fi
+
+export LUNARVIM_CONFIG_DIR="${LUNARVIM_RUNTIME_DIR:-$config_dir}"
+export LUNARVIM_RUNTIME_DIR="${LUNARVIM_RUNTIME_DIR:-"/home/mxuan/.local/share/lunarvim"}"
+export LUNARVIM_CACHE_DIR="${LUNARVIM_CACHE_DIR:-"/home/mxuan/.cache/lvim"}"
+export LUNARVIM_BASE_DIR="${LUNARVIM_BASE_DIR:-"/home/mxuan/.local/share/lunarvim/lvim"}"
+
+exec -a "$NVIM_APPNAME" nvim -u "$LUNARVIM_BASE_DIR/init.lua" "$@"
+
