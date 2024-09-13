@@ -4,10 +4,9 @@
 -- Forum: https://www.reddit.com/r/lunarvim/
 -- Discord: https://discord.com/invite/Xb9B4Ny
 
-vim.opt.tabstop = 4 -- insert 2 spaces for a tab
-vim.opt.shiftwidth = 4
+vim.opt.tabstop = 2 -- insert 2 spaces for a tab
+vim.opt.shiftwidth = 2
 vim.opt.expandtab = false
-
 
 -- normal
 lvim.keys.normal_mode["x"] = "\"_x"
@@ -23,6 +22,9 @@ lvim.keys.normal_mode["<C-c>"] = "\"+yy"
 lvim.keys.normal_mode["<C-x>"] = "\"+cc<ESC>\"_dd"
 lvim.keys.normal_mode["<C-z>"] = "u"
 lvim.keys.normal_mode["<C-/>"] = "gcc"
+lvim.keys.normal_mode["<C-M-l>"] = "<cmd>lua require('lvim.lsp.utils').format()<cr>"
+lvim.keys.normal_mode["<S-h>"] = "^"
+lvim.keys.normal_mode["<S-l>"] = "g_"
 
 -- insert
 lvim.keys.insert_mode["jj"] = "<ESC>"
@@ -41,19 +43,21 @@ lvim.keys.visual_mode["<C-c>"] = "\"+y"
 lvim.keys.visual_mode["<C-z>"] = "u"
 lvim.keys.visual_mode["<C-/>"] = "gc"
 
-
+lvim.builtin.telescope.theme = "center"
 lvim.builtin.treesitter.ensure_installed = {
-  "bash",
-  "c",  "cpp",
-  "javascript",
-  "json",
-  "lua",
-  "python",
-  "typescript",
-  "tsx",
-  "css",
-  "rust",
-  "java",
-  "yaml",
+	"bash",
+	"c",  "cpp", "cmake",
+	"java", "rust",
+	"lua", "python",
+	"javascript", "typescript", "css", "tsx",
+	"json", "yaml",
+	"markdown",
 }
 
+lvim.builtin.terminal = {
+	execs = {
+		{ nil, "<M-`>", "Float Terminal", "float", nil },
+		{ nil, "<M-1>", "Horizontal Terminal", "horizontal", 0.3 },
+		{ nil, "<M-2>", "Vertical Terminal", "vertical", 0.4 },
+  },
+}
