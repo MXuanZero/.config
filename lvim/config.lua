@@ -44,7 +44,7 @@ lvim.keys.visual_mode["<C-/>"] = "gc"
 
 lvim.builtin.treesitter.ensure_installed = {
   "bash",
-  "c",  "cpp", 
+  "c",  "cpp",
   "javascript",
   "json",
   "lua",
