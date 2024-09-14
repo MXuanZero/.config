@@ -19,7 +19,7 @@ lvim.plugins = {
 
 vim.opt.tabstop = 2 -- insert 2 spaces for a tab
 vim.opt.shiftwidth = 2
-vim.opt.expandtab = false
+vim.opt.expandtab = true
 
 lvim.leader = "space"
 
