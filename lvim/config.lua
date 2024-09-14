@@ -69,7 +69,7 @@ lvim.builtin.terminal.execs = {
 
 lvim.builtin.treesitter.ensure_installed = {
   "bash", "fish",
-  "asm", "c", "cpp", "make", "cmake",
+  "asm", "c", "cpp", "make", "cmake", "kconfig",
   "java", "rust",
   "lua", "python",
   "javascript", "typescript", "css", "tsx", "html", "http",
