@@ -40,6 +40,7 @@ lvim.keys.normal_mode["<C-/>"] = "gcc"
 lvim.keys.normal_mode["<C-M-l>"] = "<cmd>lua require('lvim.lsp.utils').format()<cr>"
 lvim.keys.normal_mode["<S-h>"] = "^"
 lvim.keys.normal_mode["<S-l>"] = "g_"
+lvim.keys.normal_mode["<C-b>"] = "<C-w>"
 
 -- insert
 lvim.keys.insert_mode["jj"] = "<ESC>"
