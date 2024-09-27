@@ -30,6 +30,8 @@ lvim.keys.normal_mode["dd"] = "\"_dd"
 lvim.keys.normal_mode["D"] = "\"_D"
 lvim.keys.normal_mode["y"] = "\"+y"
 lvim.keys.normal_mode["yy"] = "\"+yy"
+lvim.keys.normal_mode["c"] = "\"+c"
+lvim.keys.normal_mode["C"] = "\"+C"
 lvim.keys.normal_mode["p"] = "\"+p"
 lvim.keys.normal_mode["P"] = "\"+P"
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
@@ -40,7 +42,6 @@ lvim.keys.normal_mode["<C-/>"] = "gcc"
 lvim.keys.normal_mode["<C-M-l>"] = "<cmd>lua require('lvim.lsp.utils').format()<cr>"
 lvim.keys.normal_mode["<S-h>"] = "^"
 lvim.keys.normal_mode["<S-l>"] = "g_"
-lvim.keys.normal_mode["<C-b>"] = "<C-w>"
 
 -- insert
 lvim.keys.insert_mode["jj"] = "<ESC>"
@@ -50,14 +51,19 @@ lvim.keys.insert_mode["<C-/>"] = "<ESC>gcc"
 -- visual
 lvim.keys.visual_mode["x"] = "\"_x"
 lvim.keys.visual_mode["X"] = "\"_X"
-lvim.keys.visual_mode["dd"] = "\"_dd"
+lvim.keys.visual_mode["dd"] = "\"_d"
 lvim.keys.visual_mode["D"] = "\"_D"
+lvim.keys.visual_mode["c"] = "\"+c"
+lvim.keys.visual_mode["C"] = "\"+C"
 lvim.keys.visual_mode["p"] = "\"_d\"+P"
 lvim.keys.visual_mode["P"] = "\"_d\"+P"
 lvim.keys.visual_mode["<C-x>"] = "\"+c<ESC>"
+lvim.keys.visual_mode["<C-v>"] = "\"_d\"+P"
 lvim.keys.visual_mode["<C-c>"] = "\"+y"
 lvim.keys.visual_mode["<C-z>"] = "u"
 lvim.keys.visual_mode["<C-/>"] = "gc"
+lvim.keys.visual_mode["<S-h>"] = "^"
+lvim.keys.visual_mode["<S-l>"] = "g_"
 
 -- builtin
 lvim.builtin.telescope.theme = "center"
@@ -70,7 +76,7 @@ lvim.builtin.terminal.execs = {
 
 lvim.builtin.treesitter.ensure_installed = {
   "bash", "fish",
-  "asm", "c", "cpp", "make", "cmake", "kconfig",
+  "asm", "c", "cpp", "make", "cmake", "kconfig", "linkerscript", "devicetree",
   "java", "rust",
   "lua", "python",
   "javascript", "typescript", "css", "tsx", "html", "http",
@@ -84,10 +90,10 @@ require('bookmarks').setup {
   -- sign_priority = 8,  --set bookmark sign priority to cover other sign
   save_file = vim.fn.expand "$HOME/.bookmarks", -- bookmarks save file path
   keywords =  {
-    ["@t"] = "☑️ ", -- mark annotation startswith @t ,signs this icon as `Todo`
-    ["@w"] = "⚠️ ", -- mark annotation startswith @w ,signs this icon as `Warn`
-    ["@f"] = "⛏ ", -- mark annotation startswith @f ,signs this icon as `Fix`
-    ["@n"] = " ", -- mark annotation startswith @n ,signs this icon as `Note`
+    ["@t"] = "", -- mark annotation startswith @t ,signs this icon as `Todo`
+    ["@w"] = "", -- mark annotation startswith @w ,signs this icon as `Warn`
+    ["@f"] = "", -- mark annotation startswith @f ,signs this icon as `Fix`
+    ["@n"] = "󰎚", -- mark annotation startswith @n ,signs this icon as `Note`
   },
   on_attach = function(bufnr)
     local bm = require "bookmarks"
