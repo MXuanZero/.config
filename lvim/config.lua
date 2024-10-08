@@ -358,8 +358,8 @@ require("llm").setup({
   url = "https://open.bigmodel.cn/api/paas/v4/chat/completions",
   model = "glm-4-flash",
   prefix = {
-    user = { text = " ", hl = "Title" },
-    assistant = { text = "󰭹 ", hl = "Added" },
+    user = { text = "\n", hl = "Title" },
+    assistant = { text = "󰭹\n", hl = "Added" },
   },
 
   save_session = true,
@@ -382,7 +382,7 @@ require("llm").setup({
     ["Output:Resend"]     = { mode = "n", key = "<C-r>" },
 
     -- The keyboard mapping for the output and input windows in "float" style.
-    ["Session:Toggle"]    = { mode = "n", key = "<leader>ac" },
+    ["Session:Toggle"]    = { mode = "n", key = "<leader>at" },
     ["Session:Close"]     = { mode = "n", key = "<esc>" },
   },
 })
