@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+# kimi api
+# export LLM_KEY="sk-N4k8se2YDWpXu1ny6HstRfkj1l70Y7ehAB97SF3g0rkVg5XI"
+# gml-flash api
+export LLM_KEY="573e68ca895b90ddeb620d4009092c8d.ANDxNHh2NB1rTxcD"
+
 export NVIM_APPNAME="${NVIM_APPNAME:-"lvim"}"
 
 param="$1"
