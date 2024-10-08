@@ -112,7 +112,7 @@ lvim.builtin.which_key.mappings = {
   ["e"] = { "<cmd>NvimTreeToggle<CR>", "Explorer" },
   a = {
     name = "ai",
-    c = { "<cmd>LLMSessionToggle<cr>", "对话" },
+    t = { "<cmd>LLMSessionToggle<cr>", "对话" },
   },
   b = {
     name = "Buffers",
@@ -358,8 +358,8 @@ require("llm").setup({
   url = "https://open.bigmodel.cn/api/paas/v4/chat/completions",
   model = "glm-4-flash",
   prefix = {
-    user = { text = "  ", hl = "Title" },
-    assistant = { text = "  ", hl = "Added" },
+    user = { text = " ", hl = "Title" },
+    assistant = { text = "󰭹 ", hl = "Added" },
   },
 
   save_session = true,
