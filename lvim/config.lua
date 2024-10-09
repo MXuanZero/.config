@@ -24,6 +24,13 @@ lvim.plugins = {
       { "<leader>ae", mode = "v", "<cmd>LLMSelectedTextHandler 请解释下面这段代码<cr>" },
       { "<leader>at", mode = "x", "<cmd>LLMTranslateTextHandler 你好，请英译汉<cr>" },
     },
+  },
+  {
+    'MeanderingProgrammer/render-markdown.nvim',
+    after = { 'nvim-treesitter' },
+    -- requires = { 'echasnovski/mini.nvim', opt = true }, -- if you use the mini.nvim suite
+    -- requires = { 'echasnovski/mini.icons', opt = true }, -- if you use standalone mini plugins
+    -- requires = { 'nvim-tree/nvim-web-devicons', opt = true }, -- if you prefer nvim-web-devicons
   }
 }
 
@@ -52,7 +59,8 @@ lvim.keys.normal_mode["<C-/>"] = "<Plug>(comment_toggle_linewise_current)"
 lvim.keys.normal_mode["<C-M-l>"] = "<cmd>lua require('lvim.lsp.utils').format()<cr>"
 lvim.keys.normal_mode["<S-h>"] = "^"
 lvim.keys.normal_mode["<S-l>"] = "g_"
-lvim.keys.normal_mode["gr"] = "<cmd>lua require('telescope.builtin').lsp_references({file_ignore_patterns = { \"%_test.go\" } })<cr>"
+lvim.keys.normal_mode["gr"] =
+"<cmd>lua require('telescope.builtin').lsp_references({file_ignore_patterns = { \"%_test.go\" } })<cr>"
 lvim.keys.normal_mode["gR"] = "<cmd>lua vim.lsp.buf.references()<cr>"
 
 -- insert
@@ -318,7 +326,7 @@ lvim.builtin.treesitter.ensure_installed = {
   "lua", "python",
   -- "javascript", "typescript", "css", "tsx", "html", "http",
   "json", "yaml", "xml",
-  "markdown",
+  "markdown", "markdown_inline",
   "gitcommit",
 }
 
@@ -387,5 +395,43 @@ require("llm").setup({
     -- The keyboard mapping for the output and input windows in "float" style.
     ["Session:Toggle"]    = { mode = "n", key = "<leader>at" },
     ["Session:Close"]     = { mode = "n", key = "<esc>" },
+  },
+})
+
+require('render-markdown').setup({
+  enabled = true,
+  heading = {
+    -- Determines how icons fill the available space:
+    --  inline:  underlying '#'s are concealed resulting in a left aligned icon
+    --  overlay: result is left padded with spaces to hide any additional '#'
+    position = 'inline',
+    -- Width of the heading background:
+    --  block: width of the heading text
+    --  full:  full width of the window
+    -- Can also be a list of the above values in which case the 'level' is used
+    -- to index into the list using a clamp
+    width = 'block',
+    -- The 'level' is used to index into the list using a clamp
+    -- Highlight for the heading icon and extends through the entire line
+    backgrounds = {
+      'RenderMarkdownH2Bg',
+      'RenderMarkdownH2Bg',
+      'RenderMarkdownH2Bg',
+      'RenderMarkdownH2Bg',
+      'RenderMarkdownH2Bg',
+      'RenderMarkdownH2Bg',
+    },
+    icons = { '󰉫 ', '󰉬 ', '󰉭 ', '󰉮 ', '󰉯 ', '󰉰 ' },
+  },
+  bullet = {
+    icons = { '•', '◦', '▸', '▹' },
+  },
+  padding = {
+    -- Highlight to use when adding whitespace, should match background
+    highlight = 'Normal',
+  },
+  code = {
+    style = 'normal',
+    border = 'thick',
   },
 })
