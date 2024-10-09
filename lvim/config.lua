@@ -59,8 +59,7 @@ lvim.keys.normal_mode["<C-/>"] = "<Plug>(comment_toggle_linewise_current)"
 lvim.keys.normal_mode["<C-M-l>"] = "<cmd>lua require('lvim.lsp.utils').format()<cr>"
 lvim.keys.normal_mode["<S-h>"] = "^"
 lvim.keys.normal_mode["<S-l>"] = "g_"
-lvim.keys.normal_mode["gr"] =
-"<cmd>lua require('telescope.builtin').lsp_references({file_ignore_patterns = { \"%_test.go\" } })<cr>"
+lvim.keys.normal_mode["gr"] = "<cmd>lua require('telescope.builtin').lsp_references({file_ignore_patterns = { \"%_test.go\" } })<cr>"
 lvim.keys.normal_mode["gR"] = "<cmd>lua vim.lsp.buf.references()<cr>"
 
 -- insert
