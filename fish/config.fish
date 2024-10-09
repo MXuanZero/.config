@@ -24,6 +24,7 @@ end
 if status is-interactive
     # Commands to run in interactive sessions can go here
 	fenv source ~/.profile
+  export MANPAGER="lvim +Man!"
 	export NEMU_HOME=/home/mxuan/WorkSpace/learn/ics2024/nemu
 	export AM_HOME=/home/mxuan/WorkSpace/learn/ics2024/abstract-machine
 end
