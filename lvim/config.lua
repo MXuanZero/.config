@@ -369,7 +369,7 @@ require("llm").setup({
   url = "https://open.bigmodel.cn/api/paas/v4/chat/completions",
   model = "glm-4-flash",
   prefix = {
-    user = { text = " ", hl = "Title" },
+    user = { text = "\n", hl = "Title" },
     assistant = { text = "󰭹\n", hl = "Added" },
   },
 
