@@ -100,18 +100,19 @@ lvim.builtin.which_key.vmappings = {
 
 lvim.builtin.which_key.mappings = {
   [";"] = { "<cmd>Alpha<CR>", "Dashboard" },
-  ["w"] = { "<cmd>w!<CR>", "Save" },
-  ["q"] = { "<cmd>confirm q<CR>", "Quit" },
-  ["/"] = { "<Plug>(comment_toggle_linewise_current)", "Comment toggle current line" },
-  ["c"] = { "<cmd>BufferKill<CR>", "Close Buffer" },
+  ["w"] = { "<cmd>w!<CR>", "保存" },
+  ["q"] = { "<cmd>confirm q<CR>", "退出" },
+  ["/"] = { "<Plug>(comment_toggle_linewise_current)", "行注释" },
+  ["c"] = { "<cmd>BufferKill<CR>", "关闭缓存" },
   ["f"] = {
     function()
       require("lvim.core.telescope.custom-finders").find_project_files { previewer = false }
     end,
-    "Find File",
+    "查找文件",
   },
-  ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
-  ["e"] = { "<cmd>NvimTreeToggle<CR>", "Explorer" },
+  ["h"] = { "<cmd>nohlsearch<CR>", "取消高亮" },
+  ["e"] = { "<cmd>NvimTreeToggle<CR>", "资源管理器" },
+  ["o"] = { "<cmd>AerialToggle<CR>", "大纲" },
   a = {
     name = "AI",
     t = { "<cmd>LLMSessionToggle<cr>", "对话" },
