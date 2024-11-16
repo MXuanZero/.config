@@ -37,6 +37,13 @@ lvim.plugins = {
 vim.opt.tabstop = 2 -- insert 2 spaces for a tab
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
+-- 开启 Folding
+vim.wo.foldmethod = 'expr'
+vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'
+-- 默认不要折叠
+-- https://stackoverflow.com/questions/8316139/how-to-set-the-default-to-unfolded-when-you-open-a-file
+-- vim.wo.foldcolumn = '1'
+vim.wo.foldlevel = 99
 
 lvim.leader = "space"
 
@@ -318,15 +325,24 @@ lvim.builtin.terminal.execs = {
   { nil, "<M-2>", "Vertical Terminal",   "vertical",   0.4 },
 }
 
-lvim.builtin.treesitter.ensure_installed = {
-  "bash", "fish",
-  "asm", "c", "cpp", "make", "cmake", "kconfig", "linkerscript", "devicetree",
-  -- "java", "rust",
-  "lua", "python",
-  -- "javascript", "typescript", "css", "tsx", "html", "http",
-  "json", "yaml", "xml",
-  "markdown", "markdown_inline",
-  "gitcommit",
+lvim.builtin.treesitter = {
+  ensure_installed = {
+    "bash", "fish",
+    "asm", "c", "cpp", "make", "cmake", "kconfig", "linkerscript", "devicetree",
+    -- "java", "rust",
+    "lua", "python",
+    -- "javascript", "typescript", "css", "tsx", "html", "http",
+    "json", "yaml", "xml",
+    "markdown", "markdown_inline",
+    "gitcommit", "comment", "regex",
+  },
+  folding = {
+    enable = true,
+  },
+}
+
+lvim.builtin.treesitter.folding = {
+  enable = true,
 }
 
 -- bookmarks
