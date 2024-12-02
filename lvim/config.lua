@@ -16,7 +16,7 @@ lvim.plugins = {
     },
   },
   {
-    "MXuanZero/llm.nvim",
+    "Kurama622/llm.nvim",
     dependencies = { "nvim-lua/plenary.nvim", "MunifTanjim/nui.nvim" },
     cmd = { "LLMSessionToggle", "LLMSelectedTextHandler", "LLMTranslateTextHandler" },
     keys = {
@@ -71,6 +71,7 @@ lvim.keys.normal_mode["gR"] = "<cmd>lua vim.lsp.buf.references()<cr>"
 
 -- insert
 lvim.keys.insert_mode["jj"] = "<ESC>"
+lvim.keys.insert_mode["jk"] = "j"
 lvim.keys.insert_mode["<C-z>"] = "<ESC>ui"
 lvim.keys.insert_mode["<C-/>"] = "<ESC>gcc"
 
@@ -84,7 +85,7 @@ lvim.keys.visual_mode["C"] = "\"+C"
 lvim.keys.visual_mode["p"] = "\"_d\"+P"
 lvim.keys.visual_mode["P"] = "\"_d\"+P"
 lvim.keys.visual_mode["<C-x>"] = "\"+c<ESC>"
-lvim.keys.visual_mode["<C-v>"] = "\"_d\"+P"
+lvim.keys.visual_mode["<C-v>"] = "P"
 lvim.keys.visual_mode["<C-c>"] = "\"+y"
 lvim.keys.visual_mode["<C-z>"] = "u"
 lvim.keys.visual_mode["<C-/>"] = "gc"
