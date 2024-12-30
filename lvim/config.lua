@@ -16,13 +16,13 @@ lvim.plugins = {
     },
   },
   {
-    "MXuanZero/llm.nvim",
+    "Kurama622/llm.nvim",
     dependencies = { "nvim-lua/plenary.nvim", "MunifTanjim/nui.nvim" },
-    cmd = { "LLMSessionToggle", "LLMSelectedTextHandler", "LLMTranslateTextHandler" },
+    cmd = { "LLMSesionToggle", "LLMSelectedTextHandler" },
     keys = {
       { "<leader>ac", mode = "n", "<cmd>LLMSessionToggle<cr>" },
       { "<leader>ae", mode = "v", "<cmd>LLMSelectedTextHandler 请解释下面这段代码<cr>" },
-      { "<leader>at", mode = "x", "<cmd>LLMTranslateTextHandler 你好，请英译汉<cr>" },
+      { "<leader>at", mode = "x", "<cmd>LLMSelectedTextHandler 英译汉<cr>" },
     },
   },
   {
@@ -82,8 +82,8 @@ lvim.keys.visual_mode["dd"] = "\"_d"
 lvim.keys.visual_mode["D"] = "\"_D"
 lvim.keys.visual_mode["c"] = "\"+c"
 lvim.keys.visual_mode["C"] = "\"+C"
-lvim.keys.visual_mode["p"] = "\"_d\"+P"
-lvim.keys.visual_mode["P"] = "\"_d\"+P"
+lvim.keys.visual_mode["p"] = "\"+p"
+lvim.keys.visual_mode["P"] = "\"+P"
 lvim.keys.visual_mode["<C-x>"] = "\"+c<ESC>"
 lvim.keys.visual_mode["<C-v>"] = "P"
 lvim.keys.visual_mode["<C-V>"] = "P"
@@ -101,7 +101,7 @@ lvim.builtin.which_key.vmappings = {
   a = {
     name = "ai",
     e = { "<cmd>LLMSelectedTextHandler 请解释下面这段代码<cr>", "解释代码" },
-    t = { "<cmd>LLMTranslateTextHandler 你好，请英译汉<cr>", "英译汉" },
+    t = { "<cmd>LLMSelectedTextHandler 你好，请英译汉<cr>", "英译汉" },
   },
   l = {
     name = "LSP",
@@ -452,3 +452,10 @@ require('render-markdown').setup({
     border = 'thick',
   },
 })
+
+-- 定义需要延迟执行的函数
+local function final_command()
+  vim.cmd("highlight markdownBold guifg=#FFA500 gui=bold")
+end
+
+vim.defer_fn(final_command, 0) -- 0 表示延迟时间为 0，立即执行，但是在启动完成后
