@@ -116,3 +116,10 @@ if ! shopt -oq posix; then
   fi
 fi
 . "$HOME/.cargo/env"
+
+# clashctl START
+# 加载 clashctl 命令
+. /home/mxuan/clashctl/scripts/cmd/clashctl.sh
+# 自动开启代理环境
+watch_proxy
+# clashctl END

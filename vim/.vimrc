@@ -80,7 +80,7 @@ nnoremap <A-down> :belowright term<cr>
 inoremap jj <esc>
 inoremap <C-x> <esc>cc
 inoremap <C-z> <esc>ui
-inoremap <C-s> :w<cr>
+inoremap <C-s> <esc>:w<cr>
 
 vnoremap x "_x
 vnoremap X "_X

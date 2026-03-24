@@ -27,3 +27,6 @@ if status is-interactive
     export AM_HOME=/home/mxuan/WorkSpace/learn/ics2024/abstract-machine
 end
 
+fish_add_path ~/.local/bin
+fish_add_path ~/.cargo/env
+fish_add_path ~/Software/arm-none-eabi/bin
