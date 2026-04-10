@@ -88,6 +88,8 @@ vnoremap dd "_d
 vnoremap D "_D
 vnoremap c "_c
 vnoremap C "_C
+vnoremap H ^
+vnoremap L g_
 vnoremap <C-V> "_dP
 vnoremap <C-v> "_dP
 vnoremap <C-z> u
