@@ -9,4 +9,5 @@ tmux/oh-my-tmux
 !vim
 !bash
 !qimgv
+!nvim
 qimgv/savedState.conf
