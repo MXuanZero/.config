@@ -31,3 +31,7 @@ export MANPAGER='nvim +Man!'
 fish_add_path ~/.local/bin
 fish_add_path ~/.cargo/env
 fish_add_path ~/Software/arm-none-eabi/bin
+
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH

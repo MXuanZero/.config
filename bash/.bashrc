@@ -123,3 +123,4 @@ if [ -d "$HOME/clashctl" ] ; then
 	. /home/mxuan/clashctl/scripts/cmd/clashctl.sh
 	watch_proxy
 fi
+export PATH="$HOME/.local/node/bin:$PATH"
