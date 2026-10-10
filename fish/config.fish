@@ -23,15 +23,20 @@ end
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
-    export NEMU_HOME=/home/mxuan/WorkSpace/learn/ics2024/nemu
-    export AM_HOME=/home/mxuan/WorkSpace/learn/ics2024/abstract-machine
+    # 工作区：基于 $HOME，不写死用户名；目录不存在则不导出（便于换机器）
+    if test -d $HOME/WorkSpace
+        set -gx WorkSpace $HOME/WorkSpace
+        set -gx NEMU_HOME $WorkSpace/learn/ics2024/nemu
+        set -gx AM_HOME $WorkSpace/learn/ics2024/abstract-machine
+    end
 end
 
 export MANPAGER='nvim +Man!'
 fish_add_path ~/.local/bin
-fish_add_path ~/.cargo/env
+# ~/.cargo 由 conf.d/rustup.fish 处理（source ~/.cargo/env.fish），这里不再重复
 fish_add_path ~/Software/arm-none-eabi/bin
 
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
+fish_add_path ~/.opencode/bin
