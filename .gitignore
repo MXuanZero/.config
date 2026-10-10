@@ -13,3 +13,5 @@ tmux/oh-my-tmux
 !eza/
 !nvim
 qimgv/savedState.conf
+# fish 机器本地状态（绝对路径、universal variables），由 fish 自行生成
+fish/fish_variables
