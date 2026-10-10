@@ -115,12 +115,33 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-. "$HOME/.cargo/env"
+[ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
 
 # 加载 clashctl 命令
 if [ -d "$HOME/clashctl" ] ; then
 	# 自动开启代理环境
-	. /home/mxuan/clashctl/scripts/cmd/clashctl.sh
+	. "$HOME/clashctl/scripts/cmd/clashctl.sh"
 	watch_proxy
 fi
 export PATH="$HOME/.local/node/bin:$PATH"
+
+# ---------- 可选工具路径 ----------
+# 跨机器使用：目录不存在则静默跳过；重复 source 不会重复叠加
+__path_prepend() {
+    case ":${PATH:-}:" in
+        *":$1:"*) return 0 ;;
+    esac
+    [ -d "$1" ] || return 0
+    PATH="$1:$PATH"
+}
+
+# pi-node（current 是稳定软链，避免写死 node 版本号）
+__path_prepend "$HOME/.local/share/pi-node/current/bin"
+# opencode
+__path_prepend "$HOME/.opencode/bin"
+unset -f __path_prepend
+
+# 工作区（基于 $HOME，不写死用户名；目录不存在则不导出）
+if [ -d "$HOME/WorkSpace" ]; then
+    export WorkSpace="$HOME/WorkSpace"
+fi
