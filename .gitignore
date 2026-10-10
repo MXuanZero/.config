@@ -10,5 +10,6 @@ tmux/oh-my-tmux
 !bash
 !qimgv
 !kitty/
+!eza/
 !nvim
 qimgv/savedState.conf

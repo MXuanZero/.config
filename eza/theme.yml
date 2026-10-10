@@ -1,0 +1,52 @@
+# eza 主题：图标 + 配色
+# 真实路径: ~/.config.git/eza/theme.yml
+# 生效路径: ~/.config/eza/theme.yml  (符号链接 -> 本文件)
+#
+# 说明:
+#   - glyph 用 Nerd Font 码位 (\uXXXX)，需终端字体为 Nerd Font 才能正常显示
+#   - 只写要覆盖的项，未写的部分沿用 eza 默认主题
+#   - 参考: https://github.com/eza-community/eza-themes
+
+colourful: true
+
+# ---------------- 特殊文件名：图标 + 颜色 ----------------
+filenames:
+  Cargo.toml:     {filename: {foreground: Yellow}, icon: {glyph: "\ue68b", style: {foreground: Yellow}}}
+  Cargo.lock:     {filename: {foreground: Yellow}, icon: {glyph: "\ue68b", style: {foreground: Yellow}}}
+  Dockerfile:     {filename: {foreground: Cyan},   icon: {glyph: "\ue650", style: {foreground: Cyan}}}
+  Makefile:       {filename: {foreground: Blue},   icon: {glyph: "\ue673", style: {foreground: Blue}}}
+  CMakeLists.txt: {filename: {foreground: Blue},   icon: {glyph: "\ue794", style: {foreground: Blue}}}
+  .gitignore:     {filename: {foreground: Yellow}, icon: {style: {foreground: Yellow}}}
+  .gitmodules:    {filename: {foreground: Yellow}}
+  .gitattributes: {filename: {foreground: Yellow}}
+  README.md:      {filename: {foreground: Green, is_bold: true}, icon: {style: {foreground: Green}}}
+  LICENSE:        {filename: {foreground: White, is_dimmed: true}}
+
+# ---------------- 按扩展名：只调颜色，图标沿用 eza 默认 ----------------
+extensions:
+  rs:    {filename: {foreground: Red},     icon: {style: {foreground: Red}}}
+  py:    {filename: {foreground: Green},   icon: {style: {foreground: Green}}}
+  js:    {filename: {foreground: Yellow},  icon: {style: {foreground: Yellow}}}
+  ts:    {filename: {foreground: Blue},    icon: {style: {foreground: Blue}}}
+  c:     {filename: {foreground: Cyan},    icon: {style: {foreground: Cyan}}}
+  h:     {filename: {foreground: Cyan},    icon: {style: {foreground: Cyan}}}
+  cpp:   {filename: {foreground: Cyan},    icon: {style: {foreground: Cyan}}}
+  hpp:   {filename: {foreground: Cyan},    icon: {style: {foreground: Cyan}}}
+  lua:   {filename: {foreground: Blue},    icon: {style: {foreground: Blue}}}
+  sh:    {filename: {foreground: Green},   icon: {style: {foreground: Green}}}
+  bash:  {filename: {foreground: Green}}
+  zsh:   {filename: {foreground: Green}}
+  fish:  {filename: {foreground: Green}}
+  nix:   {filename: {foreground: Cyan},    icon: {style: {foreground: Cyan}}}
+  md:    {filename: {foreground: Green},   icon: {style: {foreground: Green}}}
+  json:  {filename: {foreground: Magenta}, icon: {style: {foreground: Magenta}}}
+  yml:   {filename: {foreground: Magenta}, icon: {style: {foreground: Magenta}}}
+  yaml:  {filename: {foreground: Magenta}, icon: {style: {foreground: Magenta}}}
+  toml:  {filename: {foreground: Magenta}, icon: {style: {foreground: Magenta}}}
+  zip:   {filename: {foreground: Red}}
+  tar:   {filename: {foreground: Red}}
+  gz:    {filename: {foreground: Red}}
+  png:   {filename: {foreground: Magenta}}
+  jpg:   {filename: {foreground: Magenta}}
+  svg:   {filename: {foreground: Magenta}}
+  pdf:   {filename: {foreground: Red}}
